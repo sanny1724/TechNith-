@@ -1,0 +1,43 @@
+
+TEHNITH/
+├── README.md
+├── client/
+│   ├── index.html
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   └── src/
+│       ├── main.jsx
+│       ├── App.jsx
+│       ├── index.css
+│       ├── api/
+│       │   └── axios.js
+│       ├── components/
+│       │   ├── Footer.jsx
+│       │   ├── Navbar.jsx
+│       │   └── ProtectedRoute.jsx
+│       ├── context/
+│       │   └── AuthContext.jsx
+│       └── pages/
+│           ├── AdminPanel.jsx
+│           ├── Blogs.jsx
+│           ├── Dashboard.jsx
+│           ├── Home.jsx
+│           ├── Login.jsx
+│           ├── Signup.jsx
+│           └── Videos.jsx
+└── server/
+    ├── .env
+    ├── index.js
+    ├── package.json
+    ├── controllers/
+    │   └── authController.js
+    ├── middleware/
+    │   └── authMiddleware.js
+    ├── models/
+    │   └── User.js
+    ├── routes/
+    │   └── authRoutes.js
+    └── utils/
+        └── sendEmail.js
