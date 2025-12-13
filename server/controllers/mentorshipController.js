@@ -88,3 +88,34 @@ exports.getAllRequests = async (req, res) => {
         res.status(500).json({ message: 'Failed to fetch requests' });
     }
 };
+
+exports.updateRequestStatus = async (req, res) => {
+    try {
+        const { status } = req.body;
+        const request = await MentorshipRequest.findById(req.params.id);
+
+        if (!request) {
+            return res.status(404).json({ message: 'Request not found' });
+        }
+
+        request.status = status;
+        const updatedRequest = await request.save();
+
+        // Optional: Send email notification about status change
+        if (status === 'Approved' || status === 'Rejected') {
+            const subject = `Mentorship Request ${status}`;
+            const body = `
+                <h3>Hello ${request.name},</h3>
+                <p>Your mentorship request for <strong>${request.sessionType}</strong> on ${request.date} at ${request.timeSlot} has been <strong>${status}</strong>.</p>
+                ${status === 'Approved' ? '<p>You will receive a calendar invite shortly.</p>' : '<p>We are unable to accommodate your request at this time.</p>'}
+                <br>
+                <p>Best Regards,<br>Team TECHNITH</p>
+            `;
+            await sendEmail(request.email, subject, body);
+        }
+
+        res.json(updatedRequest);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
