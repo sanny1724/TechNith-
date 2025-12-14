@@ -18,6 +18,7 @@ const Navbar = () => {
                 <div className="hidden md:flex space-x-8 items-center text-gray-300">
                     <Link to="/" className="hover:text-tech-primary transition">Home</Link>
                     <Link to="/creator-guide" className="hover:text-red-500 transition font-semibold">Creator Guide</Link>
+                    <Link to="/resources" className="hover:text-tech-primary transition">Resources</Link>
                     <Link to="/blogs" className="hover:text-tech-primary transition">Blogs</Link>
                     <Link to="/about" className="hover:text-tech-primary transition">About Me</Link>
 
@@ -47,16 +48,20 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden absolute top-16 left-0 w-full bg-[#050510] border-b border-gray-800 p-4 flex flex-col space-y-4 shadow-xl">
-                    <Link to="/" className="hover:text-tech-primary" onClick={() => setIsOpen(false)}>Home</Link>
-                    <Link to="/about" className="hover:text-tech-primary" onClick={() => setIsOpen(false)}>About Me</Link>
+                <div className="fixed inset-0 z-40 bg-[#050510] flex flex-col items-center justify-center space-y-8 animate-fade-in-down">
+                    <Link to="/" className="text-2xl font-bold hover:text-tech-primary transition" onClick={() => setIsOpen(false)}>Home</Link>
+                    <Link to="/creator-guide" className="text-2xl font-bold hover:text-red-500 transition" onClick={() => setIsOpen(false)}>Creator Guide</Link>
+                    <Link to="/resources" className="text-2xl font-bold hover:text-tech-primary transition" onClick={() => setIsOpen(false)}>Resources</Link>
+                    <Link to="/blogs" className="text-2xl font-bold hover:text-tech-primary transition" onClick={() => setIsOpen(false)}>Blogs</Link>
+                    <Link to="/about" className="text-2xl font-bold hover:text-tech-primary transition" onClick={() => setIsOpen(false)}>About Me</Link>
+
                     {user ? (
                         <>
-                            <Link to="/dashboard" className="hover:text-tech-primary" onClick={() => setIsOpen(false)}>Dashboard</Link>
-                            <button onClick={() => { logout(); setIsOpen(false); }} className="text-left text-red-400">Logout</button>
+                            <Link to="/dashboard" className="text-2xl font-bold hover:text-tech-primary transition" onClick={() => setIsOpen(false)}>Dashboard</Link>
+                            <button onClick={() => { logout(); setIsOpen(false); }} className="text-2xl font-bold text-red-500 hover:text-red-400 transition">Logout</button>
                         </>
                     ) : (
-                        <Link to="/login" className="px-5 py-2 rounded-full bg-tech-primary text-center text-white" onClick={() => setIsOpen(false)}>
+                        <Link to="/login" className="px-8 py-3 rounded-full bg-gradient-to-r from-tech-primary to-tech-accent text-white font-bold text-xl hover:opacity-90 transition" onClick={() => setIsOpen(false)}>
                             Login
                         </Link>
                     )}

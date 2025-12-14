@@ -12,6 +12,7 @@ import ProjectInquiry from './pages/ProjectInquiry';
 import CreatorGuide from './pages/CreatorGuide';
 import Blogs from './pages/Blogs';
 import BlogPost from './pages/BlogPost';
+import Resources from './pages/Resources';
 import ForgotPassword from './pages/ForgotPassword';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
@@ -53,6 +54,7 @@ function App() {
           <Route path="/creator-guide" element={<CreatorGuide />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:id" element={<BlogPost />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
 

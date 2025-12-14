@@ -48,7 +48,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/mentorship', mentorshipRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/payment', paymentRoutes);
-app.use('/api/blogs', require('./routes/blogRoutes'));
+const blogRoutes = require('./routes/blogRoutes');
+app.use('/api/blogs', blogRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running...');

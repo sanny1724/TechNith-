@@ -68,21 +68,21 @@ const Home = () => {
             </div>
 
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 z-10">
-                <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <section className="relative py-20 md:py-0 md:min-h-screen flex items-center justify-center px-4 md:px-6 z-10 w-full overflow-hidden">
+                <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                     {/* Text Content */}
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="text-left"
+                        className="text-left w-full"
                     >
-                        <motion.div variants={itemVariants} className="inline-block px-4 py-2 bg-cyan-900/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold mb-6">
+                        <motion.div variants={itemVariants} className="inline-block px-3 py-1 md:px-4 md:py-2 bg-cyan-900/20 border border-cyan-500/30 rounded-full text-cyan-400 text-xs md:text-sm font-semibold mb-4 md:mb-6">
                             🚀 Welcome to the Future of Tech
                         </motion.div>
                         <motion.div
-                            className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-wider select-none whitespace-nowrap"
+                            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 md:mb-6 tracking-wider select-none"
                             initial="hidden"
                             animate="visible"
                             variants={{
@@ -111,37 +111,37 @@ const Home = () => {
                                 </motion.span>
                             ))}
                         </motion.div>
-                        <motion.p variants={itemVariants} className="text-xl text-gray-400 mb-8 max-w-lg leading-relaxed">
+                        <motion.p variants={itemVariants} className="text-base sm:text-lg md:text-xl text-gray-400 mb-6 md:mb-8 max-w-lg leading-relaxed">
                             Join <span className="text-white font-bold">TECHNITH</span> to master modern web development,
                             AI integration, and build projects that standout.
                         </motion.p>
 
-                        <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                            <a href="https://www.youtube.com/@SannithReddyBanappagari" target="_blank" className="flex items-center space-x-2 bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-full font-bold hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] transition transform hover:scale-105">
-                                <FaYoutube size={24} />
+                        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                            <a href="https://www.youtube.com/@SannithReddyBanappagari" target="_blank" className="flex items-center justify-center space-x-2 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] transition transform hover:scale-105 w-full sm:w-auto text-sm md:text-base">
+                                <FaYoutube size={20} />
                                 <span>Subscribe</span>
                             </a>
-                            <a href="https://github.com/sanny1724" target="_blank" className="flex items-center space-x-2 bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition backdrop-blur-md">
+                            <a href="https://github.com/sanny1724" target="_blank" className="flex items-center justify-center space-x-2 bg-white/5 border border-white/10 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold hover:bg-white/10 transition backdrop-blur-md w-full sm:w-auto text-sm md:text-base">
                                 <span>View Projects</span>
-                                <FaGithub />
+                                <FaGithub size={20} />
                             </a>
                         </motion.div>
 
                         {/* Social Proof */}
-                        <motion.div variants={itemVariants} className="mt-12 flex items-center space-x-6 text-gray-400">
+                        <motion.div variants={itemVariants} className="mt-8 md:mt-12 flex flex-wrap items-center gap-6 text-gray-400">
                             <div className="text-center">
-                                <h3 className="text-2xl font-bold text-white">2K+</h3>
-                                <p className="text-xs uppercase tracking-wider">Subscribers</p>
+                                <h3 className="text-xl md:text-2xl font-bold text-white">2K+</h3>
+                                <p className="text-[10px] md:text-xs uppercase tracking-wider">Subscribers</p>
                             </div>
-                            <div className="h-8 w-[1px] bg-gray-700"></div>
+                            <div className="hidden sm:block h-8 w-[1px] bg-gray-700"></div>
                             <div className="text-center">
-                                <h3 className="text-2xl font-bold text-white">500K+</h3>
-                                <p className="text-xs uppercase tracking-wider">Views</p>
+                                <h3 className="text-xl md:text-2xl font-bold text-white">500K+</h3>
+                                <p className="text-[10px] md:text-xs uppercase tracking-wider">Views</p>
                             </div>
-                            <div className="h-8 w-[1px] bg-gray-700"></div>
+                            <div className="hidden sm:block h-8 w-[1px] bg-gray-700"></div>
                             <div className="text-center">
-                                <h3 className="text-2xl font-bold text-white">100+</h3>
-                                <p className="text-xs uppercase tracking-wider">Tutorials</p>
+                                <h3 className="text-xl md:text-2xl font-bold text-white">100+</h3>
+                                <p className="text-[10px] md:text-xs uppercase tracking-wider">Tutorials</p>
                             </div>
                         </motion.div>
                     </motion.div>
