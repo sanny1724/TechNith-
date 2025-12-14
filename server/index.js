@@ -60,8 +60,14 @@ const PORT = process.env.PORT || 5000;
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/technith', {
     serverSelectionTimeoutMS: 5000 // Keep trying to send operations for 5 seconds
 })
-    .then(() => {
+    .then(async () => {
         console.log('MongoDB Connected');
+        // FIX: Drop specific index that causes Google Login to fail for 2nd user
+        try {
+            await mongoose.connection.db.collection('users').dropIndex('phone_1');
+            console.log('Fixed issue: Dropped unique phone index');
+        } catch (e) { /* Index might not exist, ignore */ }
+
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
     })
     .catch(err => {
