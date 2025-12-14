@@ -36,10 +36,6 @@ app.use((req, res, next) => {
 });
 
 // Database Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/technith')
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.error('MongoDB Connection Error:', err));
-
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/mentorship', mentorshipRoutes);
@@ -51,6 +47,17 @@ app.get('/', (req, res) => {
     res.send('API is running...');
 });
 
+// Database Connection and Server Start
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/technith', {
+    serverSelectionTimeoutMS: 5000 // Keep trying to send operations for 5 seconds
+})
+    .then(() => {
+        console.log('MongoDB Connected');
+        app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    })
+    .catch(err => {
+        console.error('MongoDB Connection Error:', err);
+        process.exit(1); // Exit if DB fails
+    });
