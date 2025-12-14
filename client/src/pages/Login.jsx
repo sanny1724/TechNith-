@@ -48,7 +48,9 @@ const Login = () => {
             navigate('/');
         } catch (err) {
             console.error(err);
-            setError(err.response?.data?.message || err.message || 'Google Login Failed');
+            const detailed = err.response?.data?.error;
+            const msg = err.response?.data?.message;
+            setError(detailed || msg || err.message || 'Server Login Failed');
         }
     };
 
@@ -133,7 +135,7 @@ const Login = () => {
                     </div>
 
                     <div className="mt-6 flex justify-center">
-                        <GoogleLogin onSuccess={googleSuccess} onError={() => setError('Google Login Failed')} theme="filled_black" shape="pill" size="medium" />
+                        <GoogleLogin onSuccess={googleSuccess} onError={() => { console.error('Popup Failed'); setError('Google Popup Blocked (AdBlock?)'); }} theme="filled_black" shape="pill" size="medium" />
                     </div>
                 </div>
 
