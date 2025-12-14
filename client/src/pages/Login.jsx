@@ -47,7 +47,8 @@ const Login = () => {
             await loginWithGoogle(credentialResponse.credential);
             navigate('/');
         } catch (err) {
-            setError('Google Login Failed');
+            console.error(err);
+            setError(err.response?.data?.message || err.message || 'Google Login Failed');
         }
     };
 
