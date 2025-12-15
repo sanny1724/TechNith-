@@ -82,7 +82,7 @@ const Home = () => {
                             🚀 Welcome to the Future of Tech
                         </motion.div>
                         <motion.div
-                            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 md:mb-6 tracking-wider select-none"
+                            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 md:mb-6 tracking-wider select-none whitespace-nowrap"
                             initial="hidden"
                             animate="visible"
                             variants={{
@@ -105,7 +105,14 @@ const Home = () => {
                                             transition: { type: "spring", damping: 12, stiffness: 100 }
                                         }
                                     }}
-                                    className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 drop-shadow-[0_0_15px_rgba(6,182,212,0.8)]"
+                                    whileHover={{
+                                        scale: 1.2,
+                                        rotate: [0, 10, -10, 0],
+                                        filter: "drop-shadow(0 0 25px rgba(6,182,212,1))",
+                                        y: -10,
+                                        transition: { duration: 0.3 }
+                                    }}
+                                    className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 drop-shadow-[0_0_15px_rgba(6,182,212,0.8)] cursor-pointer"
                                 >
                                     {char}
                                 </motion.span>
