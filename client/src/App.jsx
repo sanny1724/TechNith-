@@ -32,11 +32,7 @@ function App() {
       <AuthProvider>
         {shouldShowNavbar && <Navbar />}
         <Routes>
-          <Route path="/" element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          } />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/mentorship" element={
             <ProtectedRoute>
